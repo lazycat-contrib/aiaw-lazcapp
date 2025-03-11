@@ -1,0 +1,10 @@
+services:
+  aiaw:
+    image: krytro/aiaw:latest
+    container_name: aiaw
+    restart: unless-stopped
+    ports:
+      - '9010:9010'
+    environment:
+      # 如果要使用内置的文档解析插件
+      LLAMA_CLOUD_API_KEY: 
