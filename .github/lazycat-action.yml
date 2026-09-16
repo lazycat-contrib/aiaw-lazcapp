@@ -1,0 +1,40 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: .lazycat-build/aiaw.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: aiaw
+
+build:
+  run_buildscript: false
+
+images:
+  # 上游 tag 为 v 前缀三段 SemVer（v1.3.2~v1.8.10），排除 latest/-beta
+  - id: aiaw
+    target: service
+    service: aiaw
+    source: krytro/aiaw
+    channel: stable
+    sort: semver
+    tag_regex: '^v?\d+\.\d+\.\d+$'
+    delivery:
+      mode: mirror
+
+stores:
+  official:
+    # Official store publication is intentionally disabled; publish only to Miaomiao Store.
+    enabled: false
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: AI as Workspace
+    summary: "一个精心设计的全功能、轻量级AI客户端"
