@@ -1,5 +1,5 @@
 package: cloud.lazycat.app.aiaw
-version: 1.4.22
+version: 1.8.10
 name: AI as Workspace
 description: "一个精心设计的全功能、轻量级AI客户端"
 min_os_version: "1.5.0"

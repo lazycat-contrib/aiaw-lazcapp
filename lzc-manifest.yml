@@ -2,14 +2,12 @@ application:
   subdomain: aiaw
   background_task: true
   multi_instance: false
-
   upstreams:
     - location: /
       backend: http://aiaw:9010/
-
 services:
   aiaw:
-    # upstream: krytro/aiaw:v1.4.22
-    image: docker.1ms.run/krytro/aiaw:v1.4.22
+    # upstream: krytro/aiaw:v1.8.10
+    image: docker.1ms.run/krytro/aiaw:v1.8.10
     environment:
       - LLAMA_CLOUD_API_KEY=null
